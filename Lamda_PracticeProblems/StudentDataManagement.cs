@@ -16,7 +16,8 @@ namespace Lamda_PracticeProblems
             //RetrieveAge_Between_12to18UsingLinq(students);
             //SortStudentsDat_BasedonMarks(students);
            // StudentRecordsInEachAddress(students);
-            FetchThreeRecords(students);
+           // FetchThreeRecords(students);
+            SearchParticularStudentName(students);
         }
         public static void AddStudents(List<StudentData>list)
         {
@@ -82,6 +83,18 @@ namespace Lamda_PracticeProblems
                 Console.WriteLine("ID:" + data.Id + "  " + "Name:" + data.Name + "  " + "Phone Number:" + data.Phone_Number + "  " + "Address:" + data.Address + "  " + "Age:" + data.Age + "  " + "Marks:" + data.Marks);
             }
         }
-
+        public static void SearchParticularStudentName(List<StudentData>list)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("Searching Student Name and Display Data From List");
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine("Enter Name Serach Student Details:");
+            string input=Console.ReadLine();
+            var search=list.FindAll(x=>x.Name==input).ToList();
+            foreach(var data in search)
+            {
+                Console.WriteLine("ID:" + data.Id + "  " + "Name:" + data.Name + "  " + "Phone Number:" + data.Phone_Number + "  " + "Address:" + data.Address + "  " + "Age:" + data.Age + "  " + "Marks:" + data.Marks);
+            }
+        }
     }
 }
