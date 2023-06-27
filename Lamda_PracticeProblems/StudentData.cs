@@ -14,13 +14,15 @@ namespace Lamda_PracticeProblems
         public double Phone_Number { get; set; }
         public string Address { get; set; }
         public double Age { get; set; }
-        public StudentData(int id,string name,double phone_number,string address,double age)
+        public double Marks { get; set; }
+        public StudentData(int id,string name,double phone_number,string address,double age, double Marks)
         {
             this.Id = id;
             this.Name = name;
             this.Phone_Number = phone_number;
             this.Address = address;
             this.Age = age;
+            this.Marks = Marks;
         }
     }
 }

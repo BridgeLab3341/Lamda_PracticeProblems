@@ -13,26 +13,27 @@ namespace Lamda_PracticeProblems
         {
             List<StudentData> students = new List<StudentData>();
             AddStudents(students);
-            RetrieveAge_Between_12to18UsingLinq(students);
+            //RetrieveAge_Between_12to18UsingLinq(students);
+            SortStudentsDat_BasedonMarks(students);
         }
         public static void AddStudents(List<StudentData>list)
         {
-            list.Add(new StudentData(1, "Somu", 9807654321, "karnataka", 15));
-            list.Add(new StudentData(2, "Anil", 8546454321, "Kerala", 11));
-            list.Add(new StudentData(3, "Shankar", 9867554321, "TamilNadu", 14));
-            list.Add(new StudentData(4, "Kumar", 9807612345, "KGF", 16));
-            list.Add(new StudentData(5, "Shekar", 9883733221, "KGF", 14));
-            list.Add(new StudentData(6, "Manju", 9988054321, "KGF", 15));
-            list.Add(new StudentData(7, "Nandu", 8877654321, "KGF", 10));
-            list.Add(new StudentData(8, "Ramesh", 7668954321, "KGF", 12));
-            list.Add(new StudentData(5, "Rajesh", 9883733221, "KGF", 18));
-            list.Add(new StudentData(5, "Venky", 9883733221, "KGF", 14));
-            var dataList = list.Select(x => new { x.Id, x.Name, x.Phone_Number,x.Address ,x.Age });
+            list.Add(new StudentData(1, "Somu", 9807654321, "karnataka", 15,69));
+            list.Add(new StudentData(2, "Anil", 8546454321, "Kerala", 11,72));
+            list.Add(new StudentData(3, "Shankar", 9867554321, "TamilNadu", 14,83));
+            list.Add(new StudentData(4, "Kumar", 9807612345, "KGF", 16,37));
+            list.Add(new StudentData(5, "Shekar", 9883733221, "KGF", 14,81));
+            list.Add(new StudentData(6, "Manju", 9988054321, "KGF", 15,85));
+            list.Add(new StudentData(7, "Nandu", 8877654321, "KGF", 10,63));
+            list.Add(new StudentData(8, "Ramesh", 7668954321, "KGF", 12,46));
+            list.Add(new StudentData(5, "Rajesh", 9883733221, "KGF", 18,58));
+            list.Add(new StudentData(5, "Venky", 9883733221, "KGF", 14,76));
+            var dataList = list.Select(x => new { x.Id, x.Name, x.Phone_Number,x.Address ,x.Age,x.Marks});
             Console.WriteLine("Student Records Added to the List");
             Console.WriteLine("----------------------------------");
             foreach (var data in dataList)
             {
-                Console.WriteLine("ID:"+data.Id+"  "+"Name:"+data.Name+"  "+"Phone Number:"+data.Phone_Number+"  "+"Address:"+data.Address+"  "+"Age:"+data.Age);
+                Console.WriteLine("ID:"+data.Id+"  "+"Name:"+data.Name+"  "+"Phone Number:"+data.Phone_Number+"  "+"Address:"+data.Address+"  "+"Age:"+data.Age+"  "+"Marks:"+data.Marks);
             }
         }
         public static void RetrieveAge_Between_12to18UsingLinq(List<StudentData>list)
@@ -43,8 +44,20 @@ namespace Lamda_PracticeProblems
             Console.WriteLine("---------------------------------------------------");
             foreach (var data in retrieveAge)
             {
-                Console.WriteLine("ID:" + data.Id + "  " + "Name:" + data.Name + "  " + "Phone Number:" + data.Phone_Number + "  " + "Address:" + data.Address + "  " + "Age:" + data.Age);
+                Console.WriteLine("ID:" + data.Id + "  " + "Name:" + data.Name + "  " + "Phone Number:" + data.Phone_Number + "  " + "Address:" + data.Address + "  " + "Age:" + data.Age+"  " + "Marks:" + data.Marks);
             }
         }
+        public static void SortStudentsDat_BasedonMarks(List<StudentData> list)
+        {
+            var retrieveAge = list.OrderByDescending(x => x.Marks).ToList();
+            Console.WriteLine("");
+            Console.WriteLine("Displaying Marks in Descending and Added to the List");
+            Console.WriteLine("-----------------------------------------------------");
+            foreach (var data in retrieveAge)
+            {
+                Console.WriteLine("ID:" + data.Id + "  " + "Name:" + data.Name + "  " + "Phone Number:" + data.Phone_Number + "  " + "Address:" + data.Address + "  " + "Age:" + data.Age + "  " + "Marks:" + data.Marks);
+            }
+        }
+
     }
 }
