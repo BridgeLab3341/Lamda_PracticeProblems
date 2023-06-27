@@ -26,10 +26,10 @@ namespace Lamda_PracticeProblems
             list.Add(new StudentData(8, "Ramesh", 7668954321, "KGF", 12));
             list.Add(new StudentData(5, "Rajesh", 9883733221, "KGF", 14));
             list.Add(new StudentData(5, "Venky", 9883733221, "KGF", 14));
-            var dataList = list.Select(x => new { x.Id, x.Name, x.Phone_Number, x.Age });
+            var dataList = list.Select(x => new { x.Id, x.Name, x.Phone_Number,x.Address ,x.Age });
             foreach(var data in dataList)
             {
-                Console.WriteLine(data);
+                Console.WriteLine("ID:"+data.Id+"  "+"Name:"+data.Name+"  "+"Phone Number:"+data.Phone_Number+"  "+"Address:"+data.Address+"  "+"Age:"+data.Age);
             }
         }
     }
