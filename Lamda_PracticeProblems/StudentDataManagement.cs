@@ -14,7 +14,8 @@ namespace Lamda_PracticeProblems
             List<StudentData> students = new List<StudentData>();
             AddStudents(students);
             //RetrieveAge_Between_12to18UsingLinq(students);
-            SortStudentsDat_BasedonMarks(students);
+            //SortStudentsDat_BasedonMarks(students);
+            StudentRecordsInEachAddress(students);
         }
         public static void AddStudents(List<StudentData>list)
         {
@@ -49,13 +50,24 @@ namespace Lamda_PracticeProblems
         }
         public static void SortStudentsDat_BasedonMarks(List<StudentData> list)
         {
-            var retrieveAge = list.OrderByDescending(x => x.Marks).ToList();
+            var sort = list.OrderByDescending(x => x.Marks).ToList();
             Console.WriteLine("");
             Console.WriteLine("Displaying Marks in Descending and Added to the List");
             Console.WriteLine("-----------------------------------------------------");
-            foreach (var data in retrieveAge)
+            foreach (var data in sort)
             {
                 Console.WriteLine("ID:" + data.Id + "  " + "Name:" + data.Name + "  " + "Phone Number:" + data.Phone_Number + "  " + "Address:" + data.Address + "  " + "Age:" + data.Age + "  " + "Marks:" + data.Marks);
+            }
+        }
+        public static void StudentRecordsInEachAddress(List<StudentData> list)
+        {
+            var address = list.Select(x => new { x.Id, x.Name, x.Phone_Number, x.Address, x.Age, x.Marks });
+            Console.WriteLine("");
+            Console.WriteLine("Displaying All Records in each Address");
+            Console.WriteLine("---------------------------------------");
+            foreach (var data in address)
+            {
+                Console.WriteLine("Address:" + data.Address + "  "+"ID:" + data.Id + "  " + "Name:" + data.Name + "  " + "Phone Number:" + data.Phone_Number + "  " +"Age:" + data.Age + "  " + "Marks:" + data.Marks);
             }
         }
 
